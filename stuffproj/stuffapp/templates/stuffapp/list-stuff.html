@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} List Stuff{% endblock %}
+{% block content %}
+
+<h2> List of Stuff </h2>
+<p> <a href="{% url "create-stuff" %}" <input type=button value="Add New stuff"/> </a></p>
+
+{% if stuff %}
+    {% for thing in stuff%}
+       <a href="{% url "thing-detail" thing.id %}">{{ thing.title }}</a><br/>
+    {% endfor%}
+{% else %}
+    <p> You got no stuff :(</p>
+{% endif %}
+
+{% endblock %}
+
+

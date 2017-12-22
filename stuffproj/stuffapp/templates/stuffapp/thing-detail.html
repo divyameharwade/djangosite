@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Details{% endblock %}
+{% block content %}
+
+  <h2>{{ thing.title }}</h2>
+  <p><b>Created:</b> {{ thing.creation_date|date:"D, Y/m/d" }}</p>
+  {% if thing.description %}  
+    <p><b>Description:</b> {{ thing.description }}</p>
+  {% endif %}
+  <p><b>Quantity:</b> {{ thing.quantity }}</p>
+
+  <a href="{% url "edit-stuff" thing.id %}"><input type="button" value="Edit Your Stuff" /></a>
+  <a href="{% url "delete-stuff" thing.id %}"><input type="button" value="Delete This Stuff" /></a>
+
+{% endblock %}

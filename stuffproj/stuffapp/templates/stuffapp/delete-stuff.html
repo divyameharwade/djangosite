@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Delete Stuff{% endblock %}
+{% block content %}
+    <h2>Delete Stuff</h2>
+    <p>Are you sure you want to delete this {{ thing }}?</p>
+
+    <form action="{% url "delete-stuff" thing.id %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Delete" />
+      <a href="{% url "list-stuff" %}"><input type="button" value="Cancel" /></a>
+    </form>
+{% endblock %}
